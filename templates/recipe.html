@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{%  block title %}  {{ recipe[1] }} {% endblock %}
+
+{% block body_content %}
+<div class="row">
+    <div class="col-md-10">
+         <h1>{{ recipe[1] }} ({{ recipe[4] }})</h1>
+        <p><i class="fa fa-user"></i> By: {{ recipe[6] }} from {{ recipe[7] }}</p>
+        <p><i class="fa fa-eye"></i> Views: {{ recipe[8] }}</p>
+        <hr>
+        <h2>Ingredients</h2>
+        {{ recipe[2]|safe }}
+
+        <h2>Instructions</h2>
+        {{ recipe[3]|safe }}
+    </div>
+
+    <div class="col-md-2">
+        <div class="actions">
+
+        <a href="/edit/{{ recipe[0] }}" class="btn-success btn">Edit</a>
+        <a href="/delete/{{ recipe[0] }}" class="btn-danger btn">Delete</a>
+        <a href="/upvote/{{ recipe[0] }}" class="btn-primary btn">Up Vote ({{ recipe[5] }})</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/custom.css') }}"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block scripts %}
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=sq6f498u4u260p790s0abza78hgc6j8kv7rexyvikdpjl283
+"></script>
+    <script>
+      tinymce.init({
+        selector: '.textarea',
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor textcolor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+          ],
+          toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+      });
+    </script>
+{%  endblock %}
+
+ {% block navbar %}
+        {% include '_navbar.html' %}
+    {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% with messages = get_flashed_messages(with_categories = true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+             {% block sidebar %}
+                {% include '_sidebar.html' %}
+            {% endblock %}
+        </div>
+        <div class="col-md-9">
+
+                {% block body_content %}{% endblock %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

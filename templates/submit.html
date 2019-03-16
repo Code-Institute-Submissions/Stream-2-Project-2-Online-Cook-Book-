@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{%  block title %}
+    Submit a Recipe
+{% endblock %}
+
+{% block body_content %}
+        <div class="row">
+             <form method="post" action="/submit">
+                 <div class="col-md-12">
+                     <h1>Submit a Recipe</h1>
+                 </div>
+            <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <label for="title">Recipe Title</label>
+                        <input class="form-control" type="text" id="title" name="title" placeholder="Recipe Title" required/>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="author">Author Name</label>
+                        <input class="form-control" type="text" name="author" id="author" placeholder="Author Name" required/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="country">Author Country</label>
+                        <input class="form-control" type="text" name="country" id="country" placeholder="Author Country" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Recipe Course</label>
+                        <select class="form-control" name="course">
+                            <option value="Appetizer">Appetizer</option>
+                            <option value="Beverage">Beverage</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Entree">Entree</option>
+                            <option value="Salad">Salad</option>
+                            <option value="SideDish">Side Dish</option>
+                            <option value="Snack">Snack</option>
+                            <option value="SoupStew">Soup + Stew</option>
+                        </select>
+                    </div>
+
+                 <div class="form-group">
+                        <label for="country">Dietry</label>
+                        <select class="form-control" name="dietry" multiple=>
+                            <option value="1">Gluten Free</option>
+                            <option value="2">Healthy</option>
+                            <option value="3">Low Carb</option>
+                            <option value="4">Vegan</option>
+                            <option value="5">Vegetarian</option>
+                        </select>
+                    </div>
+
+
+
+            </div>
+            <div class="col-md-6">
+                 <div class="form-group">
+                        <label for="Ingredients">Ingredients</label>
+                        <textarea class="form-control textarea" id="Ingredients" name="ingredients" rows="4" cols="10" ></textarea>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="Instructions">Instructions</label>
+                        <textarea class="form-control textarea" id="Instructions" name="instructions" rows="4" cols="10" ></textarea>
+                    </div>
+
+                 <div class="form-group">
+                        <input type="submit" value="Submit Recipe" class="btn btn-primary"/>
+                    </div>
+            </div>
+
+            </form>
+        </div>
+{% endblock %}

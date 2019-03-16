@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{%  block title %}
+    Homepage
+{% endblock %}
+
+{% block body_content %}
+    {% if recipe %}
+
+    {% for rec in recipe %}
+    <a href="/recipe/{{ rec[0] }}">
+        <div class="recipe">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{ rec[1] }} ({{ rec[4] }})</h1>
+                    <p><i class="fa fa-user"></i> By: {{ rec[6] }} from {{ rec[7] }}</p>
+                    <p><i class="fa fa-eye"></i> Views: {{ rec[8] }}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+    {% else %}
+    <h1>No Recipes found</h1>
+    {% endif %}
+
+{% endblock %}
